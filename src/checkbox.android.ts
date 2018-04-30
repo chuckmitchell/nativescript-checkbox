@@ -120,8 +120,10 @@ export class CheckBox extends View implements CheckBoxInterface {
 
   set scale(scale) {
     this._scale = scale;
-    this._android.setScaleX(parseFloat(this._scale));
-    this._android.setScaleY(parseFloat(this._scale));
+    if (this._android) {
+      this._android.setScaleX(parseFloat(this._scale));
+      this._android.setScaleY(parseFloat(this._scale));
+    }
   }
 
   get scale() {
